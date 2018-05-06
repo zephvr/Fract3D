@@ -160,17 +160,17 @@ void Engine::compute_render()
 
 void Engine::compute()
 {
-	clock_t t;
+	auto t1 = std::chrono::steady_clock::now();
 	boost::thread_group tgroup;
-	t = clock();
 	m_x = 0; m_y = -1;
 	for (unsigned i = 0; i < CORE_USE; i++)
 	{
 		tgroup.create_thread(boost::bind(&Engine::compute_render, this));
 	}
 	tgroup.join_all();
-	t = clock() - t;
-	std::cout << "\nIt took " << make_time_readable(t) << "to compute render\n";
+	auto t2 = std::chrono::steady_clock::now();
+	auto time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
+	std::cout << "\nIt took " << make_time_readable(time_span) << "to compute render\n";
 }
 
 void afficher(boost::numeric::ublas::vector<double> v)

@@ -80,9 +80,8 @@ void SavePicture::thread_save()
 
 void SavePicture::compute()
 {
-	clock_t t;
+	auto t1 = std::chrono::steady_clock::now();
 	boost::thread_group tgroup;
-	t = clock();
 	int *res = m_camera->getResolution();
 	m_x = 0; m_y = -1;
 	for (unsigned i = 0; i < boost::thread::hardware_concurrency(); i++)
@@ -115,8 +114,9 @@ void SavePicture::compute()
 			img.write(reinterpret_cast<char*>(&m_render[x][y]->color), sizeof(RGB));
 		}
 	}
-	t = clock() - t;
-	std::cout << "\nIt took " << make_time_readable(t) << "to save the pic\n";
+	auto t2 = std::chrono::steady_clock::now();
+	auto time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
+	std::cout << "\nIt took " << make_time_readable(time_span) << "to save the pic\n";
 }
 
 bool exists_test(const std::string& name) 
