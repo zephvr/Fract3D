@@ -1,2 +1,3 @@
-*.o
+/obj
+*.ppm
 Fract3D
