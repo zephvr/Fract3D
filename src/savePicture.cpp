@@ -38,7 +38,7 @@ Color SavePicture::get_color(int const& x, int const& y)
 		vector<double> L(3), N(3);
 		N = pix.normal;
 		L = m_source[i]->getDir(pix.pos);
-		
+
 		double angle = std::max(0.0, inner_prod(L, N));
 		I_diffuse += sol->getshade().getdiffuse() * m_source[i]->getShade().getdiffuse() * angle;
 		vector<double> R(3), V(3);
@@ -90,13 +90,12 @@ void SavePicture::compute()
 	}
 	tgroup.join_all();
 	int i = 0;
-	while (exists_test("3D fract " + std::to_string(i) + ".ppm"))
+	while (exists_test("3D_fract_" + std::to_string(i) + ".ppm"))
 	{
 		i++;
 	}
-	std::string path = "3D fract " + std::to_string(i) + ".ppm";
-	std::wstring pathw = std::wstring(path.begin(), path.end());
-	std::ofstream img((char*)pathw.c_str(), std::ios::binary);
+	std::string path = "3D_fract_" + std::to_string(i) + ".ppm";
+	std::ofstream img((char*)path.c_str(), std::ios::binary);
 	std::string s_width = std::to_string(res[0]);
 	std::string s_heigth = std::to_string(res[1]);
 
@@ -119,7 +118,7 @@ void SavePicture::compute()
 	std::cout << "\nIt took " << make_time_readable(time_span) << "to save the pic\n";
 }
 
-bool exists_test(const std::string& name) 
+bool exists_test(const std::string& name)
 {
 	struct stat buffer;
 	return (stat(name.c_str(), &buffer) == 0);
