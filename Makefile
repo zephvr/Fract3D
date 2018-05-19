@@ -3,7 +3,7 @@
 
 EXEC     = Fract3D
 CXX      = g++
-CXXFLAGS = -Wall -O3 -std=c++11
+CXXFLAGS = -Wall -O3 -std=c++14
 SRCDIR   = src
 INCDIR   = src
 OBJDIR   = obj
