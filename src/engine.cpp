@@ -101,7 +101,7 @@ solid -> la reference de ce solide
 Pixel Engine::track(vector<double> const& origin, vector<double> const& way)
 {
 	Pixel data;
-	double totalDistance(0), min_range(0);
+	double totalDistance(0);
 	vector<double> current_position(origin);
 	//current_position.resize(3);
 	//current_position = origin;

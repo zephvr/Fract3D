@@ -3,7 +3,7 @@
 using namespace boost::numeric::ublas;
 
 MultiBall::MultiBall(double space, double radius, Shade shade)
-	:m_space(space), m_radius(radius)
+	:m_radius(radius), m_space(space)
 {
 	m_shade = shade;
 }

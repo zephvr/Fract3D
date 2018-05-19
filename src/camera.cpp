@@ -198,7 +198,7 @@ void afficher(boost::numeric::ublas::matrix<double> mat)
 	int x = mat.size1(), y = mat.size2();
 	for (int i = 0; i < x; i++)
 	{
-		for (int j = 0; j < x; j++)
+		for (int j = 0; j < y; j++)
 		{
 			std::cout << mat(i, j);
 		}
