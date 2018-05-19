@@ -24,14 +24,7 @@ void Progress::test(int n)
 
 	if (a > m_percent)
 	{
-		string erase = "\b\b";
-		float m = log10(m_percent);
-		for (int i = 0; i <= m; i++)
-			erase += "\b";
-		if (m_percent == 0)
-			cout << a << " %";
-		else
-			cout << erase << a << " %";
+		cout << '\r' << a << " %" << flush;
 		m_percent = a;
 	}
 }

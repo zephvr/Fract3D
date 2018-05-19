@@ -5,6 +5,9 @@ SavePicture::SavePicture(std::vector<std::vector<Pixel*>> render, std::vector<Li
 {
 	m_x = 0;
 	m_y = 0;
+	int x_res = m_camera->getResolution()[0];
+	int y_res = m_camera->getResolution()[1];
+	m_p.setNum(x_res*y_res);
 }
 
 void SavePicture::get_xy(int &x, int &y)
@@ -22,6 +25,7 @@ void SavePicture::get_xy(int &x, int &y)
 		m_x++;
 		x++;
 	}
+	m_p.test(1 + m_y + res[1]*m_x);
 	mtx_xy.unlock();
 }
 

@@ -14,6 +14,8 @@
 #include "color.h"
 #include "defines.h"
 #include "time.h"
+#include "progress.h"
+
 
 class SavePicture
 	// class permettant la sauvegarde dans une image de la boite de collision generer avec le moteur
@@ -30,6 +32,7 @@ private:
 	std::vector<Light*> m_source; // liste des sources lumineuse
 	int m_x, m_y; // 
 	Camera* m_camera; // pointeur vers la camera de la scene
+	Progress m_p;
 };
 
 bool exists_test(const std::string& name);
