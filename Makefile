@@ -3,12 +3,11 @@
 
 EXEC     = Fract3D
 CXX      = g++
-CXXFLAGS = -Wall -O3 -std=c++14
+CXXFLAGS = -Wall -O3 -std=c++14 
 SRCDIR   = src
 INCDIR   = src
 OBJDIR   = obj
-LIBS     = -lboost_thread -lboost_system
-
+LIBS     = -lboost_thread -lboost_system -pthread
 SRC      = $(shell find $(SRCDIR) -type f -name *.cpp)
 OBJ      = $(patsubst $(SRCDIR)/%,$(OBJDIR)/%,$(SRC:.cpp=.o))
 
