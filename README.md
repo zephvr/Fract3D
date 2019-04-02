@@ -26,11 +26,11 @@ Just execute the program
 
 ## How to configure
 
-Modify file `src/main.py` according to your desire. Then built it again.
+Modify file `src/main.cpp` according to your desire. Then built it again.
 
 ## TODO
 
-[ ] JSON like config file
-[ ] Command-line option
-[ ] Implement more fractal figure
-[ ] Give exemple config file for direct result
+- [ ] JSON like config file
+- [ ] Command-line option
+- [ ] Implement more fractal figure
+- [ ] Give exemple config file for direct result
